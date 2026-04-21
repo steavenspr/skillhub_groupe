@@ -4,19 +4,6 @@ Ce dossier contient la documentation complète du projet.
 
 ## Fichiers
 
-### CONTRIBUTING.md
-Guide complet de contribution au projet.
-
-Contient :
-- Stratégie de branches (main, develop, feature/*, fix/*)
-- Conventional Commits (format et exemples)
-- Processus Pull Request complet
-- Règles de sécurité
-- Définition of Done
-- Résolution de conflits
-
-Lecture obligatoire avant le premier commit.
-
 ### TEAM.md
 Composition de l'équipe et clarification des rôles.
 

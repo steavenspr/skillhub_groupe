@@ -35,7 +35,7 @@ cat CONTRIBUTING.md
 ```
 
 Plus d'infos :
-- Rôle Tech Lead ? Voir [docs/CONTRIBUTING.md](./docs/CONTRIBUTING.md)
+- Rôle Tech Lead ? Voir [CONTRIBUTING.md](./CONTRIBUTING.md)
 - Composition de l'équipe ? Voir [docs/TEAM.md](./docs/TEAM.md)
 - Stack backend ? Voir [backend/README.md](./backend/README.md)
 - Stack frontend ? Voir [frontend/README.md](./frontend/README.md)
@@ -332,7 +332,7 @@ docker: add multi-stage dockerfile for frontend
 ci: configure GitHub Actions workflow
 ```
 
-Documentation complète : voir [docs/CONTRIBUTING.md](./docs/CONTRIBUTING.md)
+Documentation complète : voir [CONTRIBUTING.md](./CONTRIBUTING.md)
 - Stratégie détaillée de branches
 - Processus PR complet avec exemples
 - Critères d'acceptation
