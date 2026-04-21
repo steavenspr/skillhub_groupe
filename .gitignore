@@ -89,3 +89,52 @@ desktop.ini
 
 # Documents PDF (jamais versionnes)
 *.pdf
+
+# ══════════════════════════════════════
+#  DOCKER & INFRA
+# ══════════════════════════════════════
+
+# Fichier .env — jamais versionné
+.env
+.env.local
+.env.*.local
+
+# Volumes Docker
+docker-volumes/
+db-data/
+mongodb-data/
+
+# ══════════════════════════════════════
+#  CI/CD & BUILD
+# ══════════════════════════════════════
+
+# Artefacts de build
+build/
+dist/
+out/
+
+# Rapports de test et couverture
+coverage/
+.nyc_output/
+htmlcov/
+
+# ══════════════════════════════════════
+#  ÉDITEURS & IDE AVANCÉES
+# ══════════════════════════════════════
+
+# JetBrains / IntelliJ
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# SublimeText
+*.sublime-project
+*.sublime-workspace
+
+# Misc
+.DS_Store
+*.swp
+*.swo
+*~
+

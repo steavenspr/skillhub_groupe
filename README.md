@@ -4,6 +4,44 @@ SkillHub met en relation des **formateurs** et des **apprenants** autour de form
 
 Ce document est un guide d'onboarding detaille pour les coequipiers du projet (frontend, backend, devops).
 
+---
+
+## Quick Start
+
+Pour un nouveau contributeur :
+
+```bash
+# 1. Cloner le repo
+git clone https://github.com/steavenspr/skillhub_groupe.git
+cd skillhub_groupe
+
+# 2. Créer une branche de travail
+git checkout develop
+git checkout -b feature/mon-travail
+
+# 3. Installer les dépendances
+cd backend && composer install
+cd ../frontend && npm install
+
+# 4. Lancer localement
+# Terminal 1 - Backend
+cd backend && php artisan serve --host=127.0.0.1 --port=8000
+
+# Terminal 2 - Frontend
+cd frontend && npm run dev
+
+# 5. Lire CONTRIBUTING.md pour les règles Git
+cat CONTRIBUTING.md
+```
+
+Plus d'infos :
+- Rôle Tech Lead ? Voir [CONTRIBUTING.md](./CONTRIBUTING.md)
+- Composition de l'équipe ? Voir [docs/TEAM.md](./docs/TEAM.md)
+- Stack backend ? Voir [backend/README.md](./backend/README.md)
+- Stack frontend ? Voir [frontend/README.md](./frontend/README.md)
+
+---
+
 ## Sommaire
 
 - [1. Contexte et objectifs](#1-contexte-et-objectifs)
@@ -127,11 +165,11 @@ Cette section distingue:
 
 ### 6.2 Roles equipe Bloc 03
 
-| Role | Mission principale | Livrables pilotes |
-|---|---|---|
-| Cloud Architect | Definir l'architecture cloud cible, comparer les options, produire la recommandation | Rapport d'audit, C4 (C1/C2), budget N1/N2 |
-| DevOps Engineer | Industrialiser l'execution et le deploiement | Dockerfiles, `docker-compose.yml`, pipeline CI/CD |
-| Tech Lead | Coherence technique, qualite de livraison, gouvernance Git | `CONTRIBUTING.md`, strategy branches/PR, controle qualite |
+| Role | Nom | Mission principale | Livrables pilotes |
+|---|---|---|---|
+| Tech Lead | Steavens | Coherence technique, qualite de livraison, gouvernance Git | `CONTRIBUTING.md`, strategy branches/PR, controle qualite |
+| DevOps Engineer | Mahery | Industrialiser l'execution et le deploiement | Dockerfiles, `docker-compose.yml`, pipeline CI/CD |
+| Cloud Architect | Nicia | Definir l'architecture cloud cible, comparer les options, produire la recommandation | Rapport d'audit, C4 (C1/C2), budget N1/N2 |
 
 ### 6.3 Regles de collaboration attendues
 
@@ -271,22 +309,35 @@ mongosh "mongodb://127.0.0.1:27017/skillhub_logs" --eval "db.activity_logs.count
 
 ## 11. Workflow equipe (Git)
 
-Workflow recommande:
+Vue rapide du workflow recommandé :
 
-1. Partir de `develop` a jour.
-2. Creer une branche `feature/nom-court`.
-3. Commits petits et atomiques.
-4. Push + Pull Request vers `develop`.
-5. Review + corrections.
-6. Merge quand la PR est validee.
+1. Partir de `develop` à jour.
+2. Créer une branche `feature/nom-court`.
+3. Commits petits et atomiques en Conventional Commits.
+4. Push et Pull Request vers `develop`.
+5. Review Tech Lead et validations CI.
+6. Merge quand PR validée.
 
-Template message de commit:
+Branches principales :
+- `main` = production (protégée, aucun commit direct)
+- `develop` = intégration (aucun commit direct, PR obligatoire)
+- `feature/*`, `fix/*`, `docker/*`, `ci/*` = travail courant
 
-```text
+Format Conventional Commits :
+```
 feat(frontend): ajouter filtre categorie dans le catalogue
 fix(api): corriger verification du role formateur
 docs(readme): clarifier setup mongodb windows
+docker: add multi-stage dockerfile for frontend
+ci: configure GitHub Actions workflow
 ```
+
+Documentation complète : voir [CONTRIBUTING.md](./CONTRIBUTING.md)
+- Stratégie détaillée de branches
+- Processus PR complet avec exemples
+- Critères d'acceptation
+- Règles de sécurité
+- Résolution de conflits
 
 ## 12. Qualite, tests et definition of done
 
