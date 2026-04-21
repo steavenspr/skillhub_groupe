@@ -6,17 +6,17 @@ Bienvenue ! Ce document formalise les règles de contribution au projet SkillHub
 
 ---
 
-## 📋 Rôles de l'équipe
+## Rôles de l'équipe
 
-| Rôle | Responsabilités principales |
-|---|---|
-| **Tech Lead** | Gouvernance Git, revues PR, qualité code, cohérence front/back |
-| **Cloud Architect** | Architecture cloud, diagrammes C4, rapport d'audit, budget |
-| **DevOps Engineer** | Dockerisation, CI/CD, orchestration, sécurité infra |
+| Rôle | Membre | Responsabilités principales |
+|---|---|---|
+| Tech Lead | Steavens | Gouvernance Git, revues PR, qualité code, cohérence front/back |
+| Cloud Architect | Nicia | Architecture cloud, diagrammes C4, rapport d'audit, budget |
+| DevOps Engineer | Mahery | Dockerisation, CI/CD, orchestration, sécurité infra |
 
 ---
 
-## 🌿 Stratégie de branches
+## Stratégie de branches
 
 ### Branches principales
 - **`main`** : branche de production, code stable uniquement, protégée
@@ -41,9 +41,9 @@ Bienvenue ! Ce document formalise les règles de contribution au projet SkillHub
 
 ---
 
-## 📝 Convention des commits
+## Convention des commits
 
-Nous utilisons **Conventional Commits** pour clarifier l'historique Git.
+Nous utilisons Conventional Commits pour clarifier l'historique Git.
 
 ### Format
 ```
@@ -83,7 +83,7 @@ test(backend): add unit tests for formation controller
 
 ---
 
-## 🔀 Processus de Pull Request (PR)
+## Processus de Pull Request
 
 ### Avant d'ouvrir une PR
 1. Vérifier que votre code compile et fonctionne localement
@@ -94,8 +94,8 @@ test(backend): add unit tests for formation controller
 
 ### Créer une PR
 1. Titre court et explicite : respecter le format des commits
-   - ✅ `feat(api): add GET /api/users endpoint`
-   - ❌ `Fix stuff`, `Update`, `Various changes`
+   - Bon : `feat(api): add GET /api/users endpoint`
+   - Mauvais : `Fix stuff`, `Update`, `Various changes`
 2. Description incluant :
    - Quelle est la fonctionnalité / le bug ?
    - Comment le changement le résout-il ?
@@ -131,22 +131,22 @@ Mise à jour requise dans `frontend/src/services/authService.js`
 ```
 
 ### Révision de PR
-- Le Tech Lead relira tout changement vers `develop` ou `main`
+- Steavens (Tech Lead) relira tout changement vers `develop` ou `main`
 - Au minimum : vérifier la qualité, cohérence, absence de secrets
 - Pour l'API : valider le contrat avec le frontend
 - Demandes de modification doivent être claires et expliquées
 
 ### Critères d'acceptation pour merge
-- ✅ CI passe (tests, lint, build)
-- ✅ Au moins 1 revue Tech Lead approuvée
-- ✅ Pas de conflits avec la branche cible
-- ✅ Commits en Conventional Commits
-- ✅ Aucun secret, pas de `.env`, pas de credentials
-- ✅ Documentation pertinente mise à jour
+- CI passe (tests, lint, build)
+- Au moins 1 revue Tech Lead approuvée
+- Pas de conflits avec la branche cible
+- Commits en Conventional Commits
+- Aucun secret, pas de `.env`, pas de credentials
+- Documentation pertinente mise à jour
 
 ---
 
-## 🔐 Règles de sécurité
+## Règles de sécurité
 
 ### Ne JAMAIS committer
 - `.env` ou autres fichiers d'environnement (utilisez `.env.example` commenté)
@@ -168,13 +168,13 @@ git diff --cached | grep -i "password\|secret\|api.key\|token"
 1. Annuler le commit : `git reset --soft HEAD~1`
 2. Supprimer le fichier sensible
 3. Re-committer proprement
-4. Signaler au Tech Lead immédiatement
+4. Signaler à Steavens (Tech Lead) immédiatement
 
 ---
 
-## 📦 Révision de code — Points clés
+## Révision de code — Points clés
 
-Le Tech Lead effectuera les vérifications suivantes sur toute PR :
+Steavens effectuera les vérifications suivantes sur toute PR :
 
 ### Qualité générale
 - [ ] Code lisible, noms explicites
@@ -206,22 +206,22 @@ Le Tech Lead effectuera les vérifications suivantes sur toute PR :
 
 ---
 
-## 🚀 Définition of Done (DoD)
+## Définition of Done
 
 Une tâche est considérée comme terminée si :
 
-- ✅ Le code compile et s'exécute localement
-- ✅ Les tests unitaires/fonctionnels passent
-- ✅ Les changements d'API sont testés avec le frontend
-- ✅ La documentation pertinente est mise à jour
-- ✅ La PR est lisible, bien décrite, reviewable
-- ✅ Aucun secret, pas de `.env`, pas de `node_modules`
-- ✅ Approuvée par Tech Lead et CI passe
-- ✅ Aucun conflit avec la branche cible
+- Le code compile et s'exécute localement
+- Les tests unitaires/fonctionnels passent
+- Les changements d'API sont testés avec le frontend
+- La documentation pertinente est mise à jour
+- La PR est lisible, bien décrite, reviewable
+- Aucun secret, pas de `.env`, pas de `node_modules`
+- Approuvée par Tech Lead et CI passe
+- Aucun conflit avec la branche cible
 
 ---
 
-## 📚 Ressources supplémentaires
+## Ressources supplémentaires
 
 - **README racine** : vue globale du projet et stack
 - **backend/README.md** : guide spécifique backend, API, routes
@@ -231,15 +231,15 @@ Une tâche est considérée comme terminée si :
 
 ---
 
-## 💬 Questions / Problèmes ?
+## Questions / Problèmes ?
 
-- **Doute sur une branche ou commit ?** Demande au Tech Lead
-- **Conflit Git ?** Voir la section "Résolution de conflits" ci-dessous
-- **Secret accidentellement poussé ?** Signale immédiatement
+- Doute sur une branche ou commit ? Demande à Steavens (Tech Lead)
+- Conflit Git ? Voir la section "Résolution de conflits" ci-dessous
+- Secret accidentellement poussé ? Signale immédiatement à Steavens
 
 ---
 
-## 🔧 Résolution de conflits
+## Résolution de conflits
 
 ### Cas : développement en parallèle sur `develop`
 
@@ -258,7 +258,7 @@ Vous avez fait un changement sur `feature/mon-feature`, mais quelqu'un d'autre a
 
 ---
 
-## 🎯 Checklist Tech Lead avant release
+## Checklist Steavens avant release
 
 Avant de merger une PR vers `main` :
 
@@ -272,7 +272,6 @@ Avant de merger une PR vers `main` :
 
 ---
 
-**Dernière mise à jour** : 21 avril 2026  
-**Responsable** : Tech Lead Bloc 03  
-**Prochaine révision** : mi-mai 2026
+Dernière mise à jour : 21 avril 2026
+Responsable : Steavens (Tech Lead)
 

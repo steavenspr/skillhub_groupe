@@ -6,9 +6,9 @@ Ce document est un guide d'onboarding detaille pour les coequipiers du projet (f
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
-**Pour un nouveau contributeur :**
+Pour un nouveau contributeur :
 
 ```bash
 # 1. Cloner le repo
@@ -34,10 +34,11 @@ cd frontend && npm run dev
 cat CONTRIBUTING.md
 ```
 
-**Plus d'infos :**
-- **Rôle Tech Lead ?** → [CONTRIBUTING.md](./CONTRIBUTING.md)
-- **Stack backend ?** → [backend/README.md](./backend/README.md)
-- **Stack frontend ?** → [frontend/README.md](./frontend/README.md)
+Plus d'infos :
+- Rôle Tech Lead ? Voir [docs/CONTRIBUTING.md](./docs/CONTRIBUTING.md)
+- Composition de l'équipe ? Voir [docs/TEAM.md](./docs/TEAM.md)
+- Stack backend ? Voir [backend/README.md](./backend/README.md)
+- Stack frontend ? Voir [frontend/README.md](./frontend/README.md)
 
 ---
 
@@ -164,11 +165,11 @@ Cette section distingue:
 
 ### 6.2 Roles equipe Bloc 03
 
-| Role | Mission principale | Livrables pilotes |
-|---|---|---|
-| Cloud Architect | Definir l'architecture cloud cible, comparer les options, produire la recommandation | Rapport d'audit, C4 (C1/C2), budget N1/N2 |
-| DevOps Engineer | Industrialiser l'execution et le deploiement | Dockerfiles, `docker-compose.yml`, pipeline CI/CD |
-| Tech Lead | Coherence technique, qualite de livraison, gouvernance Git | `CONTRIBUTING.md`, strategy branches/PR, controle qualite |
+| Role | Nom | Mission principale | Livrables pilotes |
+|---|---|---|---|
+| Tech Lead | Steavens | Coherence technique, qualite de livraison, gouvernance Git | `CONTRIBUTING.md`, strategy branches/PR, controle qualite |
+| DevOps Engineer | Mahery | Industrialiser l'execution et le deploiement | Dockerfiles, `docker-compose.yml`, pipeline CI/CD |
+| Cloud Architect | Nicia | Definir l'architecture cloud cible, comparer les options, produire la recommandation | Rapport d'audit, C4 (C1/C2), budget N1/N2 |
 
 ### 6.3 Regles de collaboration attendues
 
@@ -308,23 +309,22 @@ mongosh "mongodb://127.0.0.1:27017/skillhub_logs" --eval "db.activity_logs.count
 
 ## 11. Workflow equipe (Git)
 
-### Vue rapide
-Workflow recommande:
+Vue rapide du workflow recommandé :
 
-1. Partir de `develop` a jour.
-2. Creer une branche `feature/nom-court`.
-3. Commits petits et atomiques en **Conventional Commits**.
-4. Push + Pull Request vers `develop`.
-5. Review Tech Lead + validations CI.
-6. Merge quand PR validee.
+1. Partir de `develop` à jour.
+2. Créer une branche `feature/nom-court`.
+3. Commits petits et atomiques en Conventional Commits.
+4. Push et Pull Request vers `develop`.
+5. Review Tech Lead et validations CI.
+6. Merge quand PR validée.
 
-### Branches principales
-- **`main`** = production (protégée, aucun commit direct)
-- **`develop`** = intégration (aucun commit direct, PR obligatoire)
-- **`feature/*`**, **`fix/*`**, **`docker/*`**, **`ci/*`** = travail courant
+Branches principales :
+- `main` = production (protégée, aucun commit direct)
+- `develop` = intégration (aucun commit direct, PR obligatoire)
+- `feature/*`, `fix/*`, `docker/*`, `ci/*` = travail courant
 
-### Format Conventional Commits
-```text
+Format Conventional Commits :
+```
 feat(frontend): ajouter filtre categorie dans le catalogue
 fix(api): corriger verification du role formateur
 docs(readme): clarifier setup mongodb windows
@@ -332,8 +332,7 @@ docker: add multi-stage dockerfile for frontend
 ci: configure GitHub Actions workflow
 ```
 
-### 📖 Documentation complète
-Voir **[CONTRIBUTING.md](./CONTRIBUTING.md)** pour :
+Documentation complète : voir [docs/CONTRIBUTING.md](./docs/CONTRIBUTING.md)
 - Stratégie détaillée de branches
 - Processus PR complet avec exemples
 - Critères d'acceptation
