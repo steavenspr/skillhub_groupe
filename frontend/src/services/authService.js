@@ -18,7 +18,8 @@ const saveSession = ({ token, user }) => {
     localStorage.setItem(TOKEN_KEY, token)
   }
 
-  localStorage.setItem(USER_KEY, JSON.stringify(user))
+  const safeUser = normalizeUser(user)
+  localStorage.setItem(USER_KEY, JSON.stringify(safeUser))
 }
 
 const clearSession = () => {
