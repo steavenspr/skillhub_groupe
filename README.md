@@ -4,6 +4,43 @@ SkillHub met en relation des **formateurs** et des **apprenants** autour de form
 
 Ce document est un guide d'onboarding detaille pour les coequipiers du projet (frontend, backend, devops).
 
+---
+
+## 🚀 Quick Start
+
+**Pour un nouveau contributeur :**
+
+```bash
+# 1. Cloner le repo
+git clone https://github.com/steavenspr/skillhub_groupe.git
+cd skillhub_groupe
+
+# 2. Créer une branche de travail
+git checkout develop
+git checkout -b feature/mon-travail
+
+# 3. Installer les dépendances
+cd backend && composer install
+cd ../frontend && npm install
+
+# 4. Lancer localement
+# Terminal 1 - Backend
+cd backend && php artisan serve --host=127.0.0.1 --port=8000
+
+# Terminal 2 - Frontend
+cd frontend && npm run dev
+
+# 5. Lire CONTRIBUTING.md pour les règles Git
+cat CONTRIBUTING.md
+```
+
+**Plus d'infos :**
+- **Rôle Tech Lead ?** → [CONTRIBUTING.md](./CONTRIBUTING.md)
+- **Stack backend ?** → [backend/README.md](./backend/README.md)
+- **Stack frontend ?** → [frontend/README.md](./frontend/README.md)
+
+---
+
 ## Sommaire
 
 - [1. Contexte et objectifs](#1-contexte-et-objectifs)
@@ -271,22 +308,37 @@ mongosh "mongodb://127.0.0.1:27017/skillhub_logs" --eval "db.activity_logs.count
 
 ## 11. Workflow equipe (Git)
 
+### Vue rapide
 Workflow recommande:
 
 1. Partir de `develop` a jour.
 2. Creer une branche `feature/nom-court`.
-3. Commits petits et atomiques.
+3. Commits petits et atomiques en **Conventional Commits**.
 4. Push + Pull Request vers `develop`.
-5. Review + corrections.
-6. Merge quand la PR est validee.
+5. Review Tech Lead + validations CI.
+6. Merge quand PR validee.
 
-Template message de commit:
+### Branches principales
+- **`main`** = production (protégée, aucun commit direct)
+- **`develop`** = intégration (aucun commit direct, PR obligatoire)
+- **`feature/*`**, **`fix/*`**, **`docker/*`**, **`ci/*`** = travail courant
 
+### Format Conventional Commits
 ```text
 feat(frontend): ajouter filtre categorie dans le catalogue
 fix(api): corriger verification du role formateur
 docs(readme): clarifier setup mongodb windows
+docker: add multi-stage dockerfile for frontend
+ci: configure GitHub Actions workflow
 ```
+
+### 📖 Documentation complète
+Voir **[CONTRIBUTING.md](./CONTRIBUTING.md)** pour :
+- Stratégie détaillée de branches
+- Processus PR complet avec exemples
+- Critères d'acceptation
+- Règles de sécurité
+- Résolution de conflits
 
 ## 12. Qualite, tests et definition of done
 
