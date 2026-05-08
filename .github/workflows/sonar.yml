@@ -40,6 +40,9 @@ jobs:
       - name: Run PHPUnit tests with coverage
         working-directory: backend
         run: php artisan test --coverage-clover coverage.xml
+        env:
+          APP_KEY: base64:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+          JWT_SECRET: ci-jwt-secret-for-tests-only
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarqube-scan-action@v4
