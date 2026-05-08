@@ -25,6 +25,14 @@ jobs:
           php-version: "8.3"
           coverage: xdebug
 
+      - name: Prepare Laravel writable directories
+        working-directory: backend
+        run: |
+          mkdir -p bootstrap/cache
+          mkdir -p storage/framework/cache
+          mkdir -p storage/framework/sessions
+          mkdir -p storage/framework/views
+
       - name: Install PHP dependencies
         working-directory: backend
         run: composer install --no-interaction --prefer-dist
