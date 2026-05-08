@@ -32,6 +32,7 @@ Route::middleware(['auth:api', 'check.role:formateur'])->group(function () {
     Route::post('/formations', [FormationController::class, 'store']);
     Route::put(FORMATION_ROUTE, [FormationController::class, 'update']);
     Route::delete(FORMATION_ROUTE, [FormationController::class, 'destroy']);
+    Route::get('/formations/{formation}/apprenants', [FormationController::class, 'apprenants']);
 
     Route::post(FORMATION_MODULES_ROUTE, [ModuleController::class, 'store']);
     Route::put(MODULE_ROUTE, [ModuleController::class, 'update']);
