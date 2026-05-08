@@ -75,7 +75,10 @@ class FormationController extends Controller
             $formation->increment('nombre_de_vues');
         }
 
-        $formation->refresh()->load(['formateur:id,nom', 'modules:id,formation_id,titre,contenu,ordre,date_creation'])->loadCount('inscriptions');
+        $formation->refresh()
+            ->load(['formateur:id,nom', 'modules:id,formation_id,titre,contenu,ordre,date_creation'])
+            ->loadCount(['inscriptions', 'ratings as nombre_avis'])
+            ->loadAvg('ratings as note_moyenne', 'note');
 
         return response()->json([
             'formation' => $this->formatFormation($formation, true),
@@ -219,6 +222,8 @@ class FormationController extends Controller
             'categorie' => $formation->categorie,
             'vues' => $formation->nombre_de_vues,
             'apprenants' => (int) ($formation->inscriptions_count ?? 0),
+            'note_moyenne' => isset($formation->note_moyenne) ? round((float) $formation->note_moyenne, 2) : null,
+            'nombre_avis' => (int) ($formation->nombre_avis ?? 0),
             'formateur' => [
                 'id' => $formation->formateur_id,
                 'nom' => $formation->formateur?->nom,

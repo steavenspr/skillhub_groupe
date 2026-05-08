@@ -4,12 +4,14 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\EnrollmentController;
 use App\Http\Controllers\Api\FormationController;
 use App\Http\Controllers\Api\ModuleController;
+use App\Http\Controllers\Api\RatingController;
 use Illuminate\Support\Facades\Route;
 
-const FORMATION_ROUTE = '/formations/{formation}';
-const FORMATION_MODULES_ROUTE = '/formations/{formation}/modules';
-const FORMATION_ENROLLMENT_ROUTE = '/formations/{formation}/inscription';
-const MODULE_ROUTE = '/modules/{module}';
+defined('FORMATION_ROUTE') || define('FORMATION_ROUTE', '/formations/{formation}');
+defined('FORMATION_MODULES_ROUTE') || define('FORMATION_MODULES_ROUTE', '/formations/{formation}/modules');
+defined('FORMATION_ENROLLMENT_ROUTE') || define('FORMATION_ENROLLMENT_ROUTE', '/formations/{formation}/inscription');
+defined('FORMATION_RATING_ROUTE') || define('FORMATION_RATING_ROUTE', '/formations/{formation}/noter');
+defined('MODULE_ROUTE') || define('MODULE_ROUTE', '/modules/{module}');
 
 // Endpoints publics d'authentification.
 Route::post('/register', [AuthController::class, 'register']);
@@ -40,4 +42,5 @@ Route::middleware(['auth:api', 'check.role:apprenant'])->group(function () {
     Route::post(FORMATION_ENROLLMENT_ROUTE, [EnrollmentController::class, 'store']);
     Route::delete(FORMATION_ENROLLMENT_ROUTE, [EnrollmentController::class, 'destroy']);
     Route::get('/apprenant/formations', [EnrollmentController::class, 'mesFormations']);
+    Route::post(FORMATION_RATING_ROUTE, [RatingController::class, 'store']);
 });

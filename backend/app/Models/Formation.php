@@ -65,6 +65,14 @@ class Formation extends Model
     }
 
     /**
+     * Retourne les avis liés à cette formation.
+     */
+    public function ratings(): HasMany
+    {
+        return $this->hasMany(Rating::class, 'formation_id');
+    }
+
+    /**
      * Retourne les apprenants inscrits à cette formation.
      */
     public function apprenants(): BelongsToMany
