@@ -43,7 +43,7 @@ jobs:
 
       - name: Run PHPUnit tests with coverage
         working-directory: backend
-        run: php artisan test --coverage-clover coverage.xml
+        run: php artisan test --coverage-clover ../coverage.xml
         env:
           APP_KEY: base64:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
           JWT_SECRET: ci-jwt-secret-0123456789-abcdefghijklmnopqrstuvwxyz-ABCDEF
