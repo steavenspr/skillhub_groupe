@@ -93,4 +93,14 @@ class User extends Authenticatable implements JWTSubject
         return $this->belongsToMany(Formation::class, 'enrollments', 'utilisateur_id', 'formation_id')
             ->withPivot(['progression', 'date_inscription']);
     }
+
+    /**
+     * Retourne les avis publiés par l'utilisateur.
+     *
+     * @return HasMany<Rating, $this>
+     */
+    public function ratings(): HasMany
+    {
+        return $this->hasMany(Rating::class);
+    }
 }
