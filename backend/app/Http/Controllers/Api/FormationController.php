@@ -86,6 +86,31 @@ class FormationController extends Controller
     }
 
     /**
+     * Retourne la liste des apprenants inscrits pour une formation du formateur connecté.
+     */
+    public function apprenants(Formation $formation): JsonResponse
+    {
+        $this->ensureTrainer($formation);
+
+        $apprenants = $formation->inscriptions()
+            ->with('utilisateur:id,nom,email')
+            ->orderBy('date_inscription')
+            ->get()
+            ->map(static fn ($inscription) => [
+                'id' => $inscription->utilisateur?->id,
+                'nom' => $inscription->utilisateur?->nom,
+                'email' => $inscription->utilisateur?->email,
+                'progressions' => (int) $inscription->progression,
+                'date_inscription' => optional($inscription->date_inscription)->toISOString(),
+            ])
+            ->values();
+
+        return response()->json([
+            'data' => $apprenants,
+        ]);
+    }
+
+    /**
      * Détermine si la consultation doit incrémenter le compteur de vues.
      *
      * Le formateur propriétaire ne doit pas augmenter ses propres statistiques.
